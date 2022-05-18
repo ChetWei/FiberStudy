@@ -14,7 +14,12 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		r1 := c.Hostname() // "google.com"  获取用户请求的域名,没有域名显示ip:port
-		r2 := c.IP()       //客户端请求的ip
+
+		// Host: "tobi.ferrets.example.com" //域名分割
+		c.Subdomains()  // ["ferrets", "tobi"]
+		c.Subdomains(1) // ["tobi"]
+
+		r2 := c.IP() //客户端请求的ip
 		r3 := c.IPs()
 
 		fmt.Println(r1)

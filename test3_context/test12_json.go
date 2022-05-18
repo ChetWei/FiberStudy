@@ -9,6 +9,8 @@ func test() {
 	fmt.Println("test() func")
 }
 
+//返回json数据
+
 func main() {
 
 	app := fiber.New()
